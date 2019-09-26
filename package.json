@@ -1,0 +1,48 @@
+{
+  "name": "stimulus-controller-resolver",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/stimulus-controller-resolver.js",
+  "amdName": "StimulusControllerResolver",
+  "main": "dist/stimulus-controller-resolver.js",
+  "umd:main": "dist/stimulus-controller-resolver.umd.js",
+  "module": "dist/stimulus-controller-resolver.m.js",
+  "files": [
+    "dist"
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle --watch",
+    "prettier": "prettier --write src/*",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danieldiekmeier/stimulus-controller-resolver.git"
+  },
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "controller",
+    "lazy"
+  ],
+  "author": "Daniel Diekmeier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danieldiekmeier/stimulus-controller-resolver/issues"
+  },
+  "homepage": "https://github.com/danieldiekmeier/stimulus-controller-resolver#readme",
+  "devDependencies": {
+    "microbundle": "^0.11.0",
+    "prettier": "^1.18.2"
+  },
+  "peerDependencies": {
+    "@stimulus/mutation-observers": "1.x"
+  }
+}
