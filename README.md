@@ -1,8 +1,8 @@
 # Stimulus Controller Resolver
 
-If you have a lot of Stimulus Controllers that import other modules, the size can really start to add up. (I have some Controllers that load [Preact](https://preactjs.com)!)
+If you have a lot of Stimulus Controllers that import other modules, the size can really start to add up. (I have some Controllers that load [Preact](https://preactjs.com)!) Wouldn't it be great if you could load some of your Controllers _lazily_?
 
-To solve this, I built this Helper Class that allows you to supply a custom resolver function for your Controllers. It is supposed to replace the [`definitionsFromContext` webpack-helper](https://stimulusjs.org/handbook/installing#using-webpack) that just puts _all_ your controllers into your main bundle.
+To solve this, I built this Helper Class that allows you to supply a custom (async!) resolver function for your Controllers. It is supposed to replace the [`definitionsFromContext` webpack-helper](https://stimulusjs.org/handbook/installing#using-webpack) that just puts _all_ your controllers into your main bundle.
 
 
 ## Installation
