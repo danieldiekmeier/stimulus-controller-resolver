@@ -44,7 +44,7 @@ StimulusControllerResolver.install(application, async controllerName => (
 ))
 ```
 
-You can also use the UMD build directly in your browser. The Class is provided as `window.StimulusControllerResolver`:
+You can also use the UMD build directly in your browser. The class is provided as `window.StimulusControllerResolver`:
 
 ```html
 <script src="https://unpkg.com/stimulus"></script>
