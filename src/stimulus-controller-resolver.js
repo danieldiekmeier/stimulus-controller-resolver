@@ -53,6 +53,8 @@ export default class StimulusControllerResolver {
 
       const controllerDefinition = await this.resolverFn(controllerName)
 
+      if (typeof controllerDefinition != "function") { return }
+
       this.application.register(controllerName, controllerDefinition)
       delete this.loadingControllers[controllerName]
     }
