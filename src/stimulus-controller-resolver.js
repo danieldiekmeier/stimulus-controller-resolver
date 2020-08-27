@@ -50,7 +50,10 @@ export default class StimulusControllerResolver {
 
       const controllerDefinition = await this.resolverFn(controllerName)
 
-      this.application.register(controllerName, controllerDefinition)
+      if (controllerDefinition) {
+        this.application.register(controllerName, controllerDefinition)
+      }
+
       delete this.loadingControllers[controllerName]
     }
   }
