@@ -39,8 +39,8 @@
   },
   "homepage": "https://github.com/danieldiekmeier/stimulus-controller-resolver#readme",
   "devDependencies": {
-    "microbundle": "^0.11.0",
-    "prettier": "^1.18.2"
+    "microbundle": "^0.12.3",
+    "prettier": "^2.1.1"
   },
   "peerDependencies": {
     "@stimulus/mutation-observers": "1.x"

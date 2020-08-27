@@ -27,10 +27,7 @@ export default class StimulusControllerResolver {
   }
 
   static install(application, resolverFn) {
-    const instance = new StimulusControllerResolver(
-      application,
-      resolverFn
-    )
+    const instance = new StimulusControllerResolver(application, resolverFn)
 
     instance.start()
     return instance
@@ -39,7 +36,7 @@ export default class StimulusControllerResolver {
   loadStimulusControllers(element) {
     const controllerNames = element.getAttribute('data-controller').split(/\s+/)
 
-    controllerNames.forEach(controllerName =>
+    controllerNames.forEach((controllerName) =>
       this.loadController(controllerName)
     )
   }
