@@ -1,4 +1,4 @@
-import { AttributeObserver } from '@stimulus/mutation-observers'
+import { AttributeObserver } from '@hotwired/stimulus'
 
 export default class StimulusControllerResolver {
   constructor(application, resolverFn) {

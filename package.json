@@ -43,6 +43,6 @@
     "prettier": "^2.2.1"
   },
   "peerDependencies": {
-    "@stimulus/mutation-observers": "1.x || 2.x"
+    "@hotwired/stimulus": "3.x"
   }
 }
