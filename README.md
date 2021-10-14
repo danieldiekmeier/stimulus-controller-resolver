@@ -1,8 +1,8 @@
 # Stimulus Controller Resolver
 
-If you have a lot of Stimulus Controllers that import other modules, the size can really start to add up. (I have some Controllers that load [Preact](https://preactjs.com)!) Wouldn't it be great if you could load some of your Controllers _lazily_?
+If you have a lot of Stimulus Controllers that import other modules, the size can really start to add up. (I have some Controllers that mount [Svelte](https://svelte.dev) components!) Wouldn't it be great if you could load some of your Controllers _lazily_?
 
-To solve this, I built this Helper Class that allows you to supply a custom (async!) resolver function for your Controllers. It is supposed to replace the [`definitionsFromContext` webpack-helper](https://stimulusjs.org/handbook/installing#using-webpack) that just puts _all_ your controllers into your main bundle.
+To solve this, I built this package that allows you to supply a custom (async!) resolver function for your controllers. It is supposed to provide an alternative to putting all your controllers into your main bundle.
 
 
 ## Installation
@@ -17,7 +17,7 @@ npm i stimulus-controller-resolver
 To load all your Controllers lazily:
 
 ```js
-import { Application } from 'stimulus'
+import { Application } from '@hotwired/stimulus'
 import StimulusControllerResolver from 'stimulus-controller-resolver'
 
 const application = Application.start()
@@ -27,8 +27,7 @@ StimulusControllerResolver.install(application, async controllerName => (
 ))
 ```
 
-Webpack will then split out all the files in the `controllers`-folder into seperate chunks. (This can also depend on your [`optimization.splitChunks`](https://webpack.js.org/plugins/split-chunks-plugin/) settings.)
-
+Depending on your configuration, your bundler should then split out all the files in the `controllers`-folder into seperate chunks.
 
 If you want to preload _some_ controllers but still load all the other ones lazily, you can use the good old [`application.register`](https://stimulusjs.org/handbook/installing#using-other-build-systems):
 
@@ -42,19 +41,6 @@ application.register('crucial-controller', CrucialController)
 StimulusControllerResolver.install(application, async controllerName => (
   (await import(`./controllers/${controllerName}-controller.js`)).default
 ))
-```
-
-You can also use the UMD build directly in your browser. The class is provided as `window.StimulusControllerResolver`:
-
-```html
-<script src="https://unpkg.com/stimulus"></script>
-<script src="https://unpkg.com/stimulus-controller-resolver"></script>
-<script>
-  var application = Stimulus.Application.start()
-  StimulusControllerResolver.install(application, controllerName => (
-    // Do what you want here
-  ))
-</script>
 ```
 
 
