@@ -2,11 +2,13 @@
   "name": "stimulus-controller-resolver",
   "version": "1.1.1",
   "description": "",
-  "source": "src/stimulus-controller-resolver.js",
   "amdName": "StimulusControllerResolver",
-  "main": "dist/stimulus-controller-resolver.js",
-  "umd:main": "dist/stimulus-controller-resolver.umd.js",
-  "module": "dist/stimulus-controller-resolver.m.js",
+  "source": "./src/stimulus-controller-resolver.js",
+  "main": "./dist/stimulus-controller-resolver.cjs",
+  "module": "./dist/stimulus-controller-resolver.js",
+  "exports": "./dist/stimulus-controller-resolver.modern.js",
+  "unpkg": "./dist/stimulus-controller-resolver.umd.js",
+  "type": "module",
   "files": [
     "dist"
   ],
@@ -39,8 +41,8 @@
   },
   "homepage": "https://github.com/danieldiekmeier/stimulus-controller-resolver#readme",
   "devDependencies": {
-    "microbundle": "^0.13.0",
-    "prettier": "^2.2.1"
+    "microbundle": "^0.14.1",
+    "prettier": "^2.4.1"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "3.x"
