@@ -1,6 +1,6 @@
 {
   "name": "stimulus-controller-resolver",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "amdName": "StimulusControllerResolver",
   "source": "./src/stimulus-controller-resolver.js",
