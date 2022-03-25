@@ -2,15 +2,10 @@
   "name": "stimulus-controller-resolver",
   "version": "2.0.1",
   "description": "Resolve your Stimulus Controllers any way you want – even lazy!",
-  "amdName": "StimulusControllerResolver",
-  "source": "./src/stimulus-controller-resolver.js",
-  "main": "./dist/stimulus-controller-resolver.cjs",
-  "module": "./dist/stimulus-controller-resolver.js",
-  "exports": "./dist/stimulus-controller-resolver.modern.js",
-  "unpkg": "./dist/stimulus-controller-resolver.umd.js",
+  "exports": "./src/stimulus-controller-resolver.js",
   "type": "module",
   "files": [
-    "dist"
+    "src"
   ],
   "prettier": {
     "trailingComma": "es5",
@@ -19,10 +14,7 @@
     "singleQuote": true
   },
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle --watch",
-    "prettier": "prettier --write src/*",
-    "prepublish": "npm run build"
+    "prettier": "prettier --write src/*"
   },
   "repository": {
     "type": "git",
@@ -43,7 +35,6 @@
   },
   "homepage": "https://github.com/danieldiekmeier/stimulus-controller-resolver#readme",
   "devDependencies": {
-    "microbundle": "^0.14.2",
     "prettier": "^2.4.1"
   },
   "peerDependencies": {
