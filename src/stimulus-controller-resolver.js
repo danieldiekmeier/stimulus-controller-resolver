@@ -92,7 +92,6 @@ export function createViteGlobResolver(...globResults) {
 export function mapGlobKeysToIdentifiers(globResults) {
   return Object.entries(Object.assign({}, ...globResults)).reduce(
     (acc, [key, controllerFn]) => {
-      console.log(key, identifierForGlobKey(key))
       acc[identifierForGlobKey(key)] = controllerFn
       return acc
     },
