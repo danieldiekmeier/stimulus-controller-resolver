@@ -29,6 +29,8 @@
     "url": "git+ssh://git@github.com/danieldiekmeier/stimulus-controller-resolver.git"
   },
   "keywords": [
+    "hotwire",
+    "hotwired",
     "stimulus",
     "stimulusjs",
     "controller",
