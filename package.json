@@ -1,6 +1,6 @@
 {
   "name": "stimulus-controller-resolver",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Resolve your Stimulus Controllers any way you want – even lazy!",
   "exports": "./src/stimulus-controller-resolver.js",
   "type": "module",
