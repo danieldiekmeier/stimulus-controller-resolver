@@ -60,7 +60,7 @@ StimulusControllerResolver.install(application, createViteGlobResolver(
 ))
 ```
 
-The filenames will be transformed according to the [Stimulus Identifier Rules](https://stimulus.hotwired.dev/reference/controllers#identifiers), starting from the `controllers` or `components` folders:
+By default, the filenames will be transformed according to the [Stimulus Identifier Rules](https://stimulus.hotwired.dev/reference/controllers#identifiers), starting from the `controllers` or `components` folders:
 
 | Path                                           | Stimulus Identifier |
 |------------------------------------------------|---------------------|
@@ -73,7 +73,50 @@ If `process.env.NODE_ENV === 'development'`, it also prints a helpful message if
 Stimulus Controller Resolver can't resolve "missing". Available: ['this-one', 'and-this-one']
 ```
 
-💡 If you need more flexibility, you can of course always implement your own custom resolver function, as described above.
+#### Custom Regex
+
+If you need more flexibility, you can provide your own Regex to extract the identifiers from your paths. The first match will be transformed according to the aforementioned Stimulus Identifier Rules.
+
+```js
+StimulusControllerResolver.install(application, createViteGlobResolver([{
+  glob: import.meta.glob('../sprinkles/**/*_controller.js'),
+  regex: /^.+sprinkles\/(.+?)_controller.js$/,
+}]))
+```
+
+#### Custom Identifier Transformation
+
+If you _still_ need more flexibility, you can provide your own `toIdentifier` function. For example, if you wanted `../cards/album/stimulus_controller.js` to be available as `album-card`, you could do:
+
+```js
+StimulusControllerResolver.install(application, createViteGlobResolver([{
+  glob: import.meta.glob('../cards/*/stimulus_controller.js'),
+  toIdentifier(key) {
+    return key.split("cards/")[1].split("/stimulus_controller")[0] + "-card"
+  },
+}]))
+```
+
+#### Mix and match
+
+Combine the different ways however you need!
+
+```js
+StimulusControllerResolver.install(application, createViteGlobResolver([
+  import.meta.glob('../controllers/*-controller.js'),
+  {
+    glob: import.meta.glob('../shop/components/*/stimulus_controller.js'),
+    regex: /example/
+  },
+  {
+    glob: import.meta.glob('../shop/components/*/stimulus_controller.js'),
+    toIdentifier(key) { return key.toLowerCase() }
+  },
+]))
+```
+
+> [!TIP]
+> If after all this, you need _even more_ flexibility, you can always implement your completely own custom resolver function, as described above.
 
 
 ## API

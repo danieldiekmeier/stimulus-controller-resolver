@@ -14,7 +14,8 @@
   },
   "scripts": {
     "deps:update": "corepack use pnpm@latest && pnpm update --latest --interactive",
-    "prettier": "prettier --write src/*"
+    "prettier": "prettier --write src/*",
+    "test": "node --test ./tests/**/*"
   },
   "repository": {
     "type": "git",
