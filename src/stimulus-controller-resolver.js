@@ -1,4 +1,4 @@
-import { AttributeObserver } from '@hotwired/stimulus'
+import { AttributeObserver } from "@hotwired/stimulus"
 
 export default class StimulusControllerResolver {
   constructor(application, resolverFn) {
@@ -14,7 +14,7 @@ export default class StimulusControllerResolver {
       {
         elementMatchedAttribute: this.loadStimulusControllers,
         elementAttributeValueChanged: this.loadStimulusControllers,
-      }
+      },
     )
   }
 
@@ -38,7 +38,7 @@ export default class StimulusControllerResolver {
       .split(/\s+/)
 
     controllerNames.forEach((controllerName) =>
-      this.loadController(controllerName)
+      this.loadController(controllerName),
     )
   }
 
@@ -66,11 +66,11 @@ export function createViteGlobResolver(...globResults) {
   const resolverFn = async (controllerName) => {
     const loader = controllerLoaders[controllerName]
 
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
       if (!loader) {
         console.warn(
           `Stimulus Controller Resolver can't resolve "${controllerName}". Available:`,
-          Object.keys(controllerLoaders)
+          Object.keys(controllerLoaders),
         )
         return
       }
@@ -87,8 +87,8 @@ export function createViteGlobResolver(...globResults) {
 // object, where the key is the Stimulus identifier.
 // Example:
 //   mapGlobKeysToIdentifiers(
-//     { './a_controller.js': fn1 },
-//     { './b_controller.js': fn2 }
+//     { "./a_controller.js": fn1 },
+//     { "./b_controller.js": fn2 }
 //   )
 //   => { a: fn1, b: fn2 }
 export function mapGlobKeysToIdentifiers(globResults) {
@@ -97,7 +97,7 @@ export function mapGlobKeysToIdentifiers(globResults) {
       acc[identifierForGlobKey(key)] = controllerFn
       return acc
     },
-    {}
+    {},
   )
 }
 
@@ -107,5 +107,5 @@ export const CONTROLLER_FILENAME_REGEX =
 // Yoinked from: https://github.com/ElMassimo/stimulus-vite-helpers/blob/e349b0d14d5585773153a178c8fe129821bbf786/src/index.ts#L21-L25
 export function identifierForGlobKey(key) {
   const logicalName = (key.match(CONTROLLER_FILENAME_REGEX) || [])[1]
-  if (logicalName) return logicalName.replace(/_/g, '-').replace(/\//g, '--')
+  if (logicalName) return logicalName.replace(/_/g, "-").replace(/\//g, "--")
 }

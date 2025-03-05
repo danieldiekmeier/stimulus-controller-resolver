@@ -8,10 +8,9 @@
     "src"
   ],
   "prettier": {
-    "trailingComma": "es5",
+    "trailingComma": "all",
     "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true
+    "semi": false
   },
   "scripts": {
     "deps:update": "corepack use pnpm@latest && pnpm update --latest --interactive",
