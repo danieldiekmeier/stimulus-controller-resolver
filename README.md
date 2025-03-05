@@ -89,12 +89,12 @@ StimulusControllerResolver.install(application, createViteGlobResolver([{
 If you _still_ need more flexibility, you can provide your own `toIdentifier` function. For example, if you wanted `../cards/album/stimulus_controller.js` to be available as `album-card`, you could do:
 
 ```js
-StimulusControllerResolver.install(application, createViteGlobResolver([{
+StimulusControllerResolver.install(application, createViteGlobResolver({
   glob: import.meta.glob('../cards/*/stimulus_controller.js'),
   toIdentifier(key) {
     return key.split("cards/")[1].split("/stimulus_controller")[0] + "-card"
   },
-}]))
+}))
 ```
 
 #### Mix and match
@@ -102,7 +102,7 @@ StimulusControllerResolver.install(application, createViteGlobResolver([{
 Combine the different ways however you need!
 
 ```js
-StimulusControllerResolver.install(application, createViteGlobResolver([
+StimulusControllerResolver.install(application, createViteGlobResolver(
   import.meta.glob('../controllers/*-controller.js'),
   {
     glob: import.meta.glob('../shop/components/*/stimulus_controller.js'),
@@ -112,7 +112,7 @@ StimulusControllerResolver.install(application, createViteGlobResolver([
     glob: import.meta.glob('../shop/components/*/stimulus_controller.js'),
     toIdentifier(key) { return key.toLowerCase() }
   },
-]))
+))
 ```
 
 > [!TIP]
