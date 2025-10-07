@@ -35,7 +35,9 @@ export default class StimulusControllerResolver {
   loadStimulusControllers(element) {
     const controllerNames = element
       .getAttribute(this.application.schema.controllerAttribute)
+      .trim()
       .split(/\s+/)
+      .filter(Boolean)
 
     controllerNames.forEach((controllerName) =>
       this.loadController(controllerName),
